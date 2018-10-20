@@ -1,10 +1,11 @@
 import React from 'react';
 import Hello from './Hello.jsx';
 import Info from './Info.jsx';
+import TestComponent from './TestComponent.jsx'
 import GoldenLayout from 'golden-layout'
-import jquery from 'jquery'
-import StartupScripts from '/imports/ui/startup/StartupScripts'
 
+import '../../node_modules/golden-layout/src/css/goldenlayout-base.css'
+import '../../node_modules/golden-layout/src/css/goldenlayout-dark-theme.css'
 
 class App extends React.Component {
 
@@ -32,26 +33,35 @@ class App extends React.Component {
             componentState: { label: 'C' }
           }]
         }]
-      }]
+      }],
+      height : '100px',
     };
 
-    // var myLayout = new GoldenLayout( config );
-    //
-    // myLayout.init();
-    //
-    // console.log($('#react-target'))
+    var myLayout = new GoldenLayout( config , $('#gl-target'));
+
+    myLayout.registerComponent( 'testComponent', TestComponent );
+
+    myLayout.init();
+    myLayout.updateSize($('#gl-target').width(), $('#gl-target').height());
+
+    $(window).resize(function () {
+      myLayout.updateSize($('#gl-target').width(), $('#gl-target').height());
+    });
+
+    console.log($('#react-target'))
   }
 
   render() {
 
     return (
       <div>
-        <StartupScripts />
-        <div>
-          <h1>Welcome to Meteor!</h1>
-          <Hello />
-          <Info />
-        </div>
+        {
+          // <div>
+          //   <h1>Welcome to Meteor!</h1>
+          //   <Hello />
+          //   <Info />
+          // </div>
+        }
       </div>
     )
   }
