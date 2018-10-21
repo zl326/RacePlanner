@@ -1,1 +1,1 @@
-meteor
+meteor --port 80
