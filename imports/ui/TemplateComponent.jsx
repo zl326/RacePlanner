@@ -1,6 +1,8 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import TrackerReact from 'meteor/ultimatejs:tracker-react';
 
-class TemplateComponent extends React.Component {
+class TemplateComponent extends TrackerReact(React.Component) {
 
   constructor() {
     super();
@@ -8,11 +10,19 @@ class TemplateComponent extends React.Component {
 
   componentDidMount() {}
 
+  shouldComponentUpdate() {}
+
+  componentDidUpdate() {}
+
+  componentWillUnmount() {}
+
+  componentDidCatch() {}
+
   render() {
 
     return (
       <div>
-        
+
       </div>
     )
   }
