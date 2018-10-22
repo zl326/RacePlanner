@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
-import ErrorBoundary from './ErrorBoundary.jsx';
+import ErrorBoundary from './Misc/ErrorBoundary.jsx';
 
-import GLInstance from './GLComponent/GLInstance.jsx'
+import GLInstance from './GoldenLayout/GLInstance.jsx'
+import AppBarTabs from './AppBar/AppBarTabs.jsx'
 
 class App extends TrackerReact(React.Component) {
 
@@ -23,16 +24,9 @@ class App extends TrackerReact(React.Component) {
         height : '100%',
         display : 'flex',
       }}>
-        <div style={{
-          width : '100%',
-          height : '100%',
-          display : 'flex',
-          flexDirection : 'column',
-        }}>
-          <ErrorBoundary>
-            <GLInstance style="flex: 1;" />
-          </ErrorBoundary>
-        </div>
+        <ErrorBoundary>
+          <AppBarTabs />
+        </ErrorBoundary>
       </div>
     )
   }
