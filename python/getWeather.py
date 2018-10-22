@@ -41,7 +41,7 @@ for row in routeFile:
             headers.append(value)
         else :
             route[headers[index]].append(float(value))
-    nRow += 1
+    nRow += 1 
 
 
 # Loop through each location

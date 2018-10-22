@@ -8,7 +8,7 @@ import GoldenLayout from 'golden-layout'
 import '../../../node_modules/golden-layout/src/css/goldenlayout-base.css'
 import '../../../node_modules/golden-layout/src/css/goldenlayout-dark-theme.css'
 
-class GLComponent extends TrackerReact(React.Component) {
+class GLInstance extends TrackerReact(React.Component) {
 
   constructor() {
     super();
@@ -39,17 +39,17 @@ class GLComponent extends TrackerReact(React.Component) {
     };
 
 
-    var parentElement = $(`#GLElement`);
+    var parentElement = document.getElementById(`GLElement`);
 
     var layout = new GoldenLayout( config , parentElement);
 
     layout.registerComponent( 'testComponent', TestComponent );
 
     layout.init();
-    layout.updateSize(parentElement.width(), parentElement.height());
+    layout.updateSize(parentElement.style.width, parentElement.style.height);
 
     $(window).resize(function () {
-      layout.updateSize(parentElement.width(), parentElement.height());
+      layout.updateSize(parentElement.style.width, parentElement.style.height);
     });
   }
 
@@ -75,4 +75,4 @@ class GLComponent extends TrackerReact(React.Component) {
   }
 };
 
-export default GLComponent;
+export default GLInstance;

@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
+import ErrorBoundary from './ErrorBoundary.jsx';
 
 class TemplateComponent extends TrackerReact(React.Component) {
 
