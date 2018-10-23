@@ -44,13 +44,15 @@ class GLInstance extends TrackerReact(React.Component) {
     var layout = new GoldenLayout( config , parentElement);
 
     layout.registerComponent( 'testComponent', TestComponent );
+    layout._isFullPage = true;
 
     layout.init();
-    layout.updateSize(parentElement.style.width, parentElement.style.height);
+    // layout.updateSize();
 
-    $(window).resize(function () {
-      layout.updateSize(parentElement.style.width, parentElement.style.height);
-    });
+    // layout.updateSize(parentElement.style.width, parentElement.style.height);
+    // $(window).resize(function () {
+    //   layout.updateSize(parentElement.style.width, parentElement.style.height);
+    // });
   }
 
   shouldComponentUpdate() {}
@@ -65,9 +67,11 @@ class GLInstance extends TrackerReact(React.Component) {
 
     return (
       <div id="GLElement" style={{
-        width : '100%',
-        height : '100%',
-        display : 'flex',
+        width : '99%',
+        height : '99%',
+        margin : '0px',
+        padding : '0px',
+        flexGrow : 1,
       }}>
 
       </div>

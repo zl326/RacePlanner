@@ -54,13 +54,14 @@ class AppBarTabs extends TrackerReact(React.Component) {
 
     return (
       <div className={classes.root} style={{
-        width : '100%',
-        height : '100%',
         display : 'flex',
         flexDirection : 'column',
       }}>
         <MuiThemeProvider theme={this.props.theme}>
-          <AppBar position="static" color="default">
+          <AppBar position="static" color="default" style={{
+            flexGrow : 0,
+            flexShrink : 1,
+          }}>
             <Tabs
               value={value}
               onChange={this.handleChange}
@@ -75,13 +76,18 @@ class AppBarTabs extends TrackerReact(React.Component) {
               <Tab label="Item Four" />
             </Tabs>
           </AppBar>
-          {value === 0 && <ErrorBoundary><GLInstance style="flex: 1;" /></ErrorBoundary>}
-          {value === 1 && <TabContainer>Item Two</TabContainer>}
-          {value === 2 && <TabContainer>Item Three</TabContainer>}
-          {value === 3 && <TabContainer>Item Four</TabContainer>}
-          {value === 4 && <TabContainer>Item Five</TabContainer>}
-          {value === 5 && <TabContainer>Item Six</TabContainer>}
-          {value === 6 && <TabContainer>Item Seven</TabContainer>}
+          <div style={{
+            height : '100%',
+            display : 'flex',
+          }}>
+            {value === 0 && <ErrorBoundary><GLInstance /></ErrorBoundary>}
+            {value === 1 && <TabContainer>Item Two</TabContainer>}
+            {value === 2 && <TabContainer>Item Three</TabContainer>}
+            {value === 3 && <TabContainer>Item Four</TabContainer>}
+            {value === 4 && <TabContainer>Item Five</TabContainer>}
+            {value === 5 && <TabContainer>Item Six</TabContainer>}
+            {value === 6 && <TabContainer>Item Seven</TabContainer>}
+          </div>
         </MuiThemeProvider>
       </div>
     );
