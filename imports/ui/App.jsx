@@ -36,7 +36,6 @@ class App extends TrackerReact(React.Component) {
         height : '100%',
         margin : '0px',
         padding : '0px',
-        overflow : 'hidden',
         display : 'flex',
       }}>
         <ErrorBoundary>

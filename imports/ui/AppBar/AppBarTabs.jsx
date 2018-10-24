@@ -11,6 +11,8 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
+import Icon from '@material-ui/core/Icon';
+
 import GLInstance from '../GoldenLayout/GLInstance.jsx'
 
 function TabContainer(props) {
@@ -74,6 +76,12 @@ class AppBarTabs extends TrackerReact(React.Component) {
               <Tab label="Item Two" />
               <Tab label="Item Three" />
               <Tab label="Item Four" />
+              <Tab label="Item Five" />
+              <Tab label="Item Six" />
+              <Tab label="Item Seven" />
+              <Tab label="Item Eight" />
+              <Tab label="Item Nine" />
+              <Tab label="Item Ten" />
             </Tabs>
           </AppBar>
           <div style={{
@@ -87,6 +95,9 @@ class AppBarTabs extends TrackerReact(React.Component) {
             {value === 4 && <TabContainer>Item Five</TabContainer>}
             {value === 5 && <TabContainer>Item Six</TabContainer>}
             {value === 6 && <TabContainer>Item Seven</TabContainer>}
+            {value === 7 && <TabContainer>Item Eight</TabContainer>}
+            {value === 8 && <TabContainer>Item Nine</TabContainer>}
+            {value === 9 && <TabContainer>Item Ten</TabContainer>}
           </div>
         </MuiThemeProvider>
       </div>

@@ -67,11 +67,11 @@ class GLInstance extends TrackerReact(React.Component) {
 
     return (
       <div id="GLElement" style={{
-        width : '99%',
-        height : '99%',
+        width : '100%',
+        height : '100%',
         margin : '0px',
         padding : '0px',
-        flexGrow : 1,
+        // flexGrow : 1,
       }}>
 
       </div>
