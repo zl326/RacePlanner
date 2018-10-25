@@ -50,9 +50,10 @@ class GLInstance extends TrackerReact(React.Component) {
     // layout.updateSize();
 
     // layout.updateSize(parentElement.style.width, parentElement.style.height);
-    // $(window).resize(function () {
-    //   layout.updateSize(parentElement.style.width, parentElement.style.height);
-    // });
+    $(window).resize(function () {
+      layout.updateSize();
+      // layout.updateSize(parentElement.style.width, parentElement.style.height);
+    });
   }
 
   shouldComponentUpdate() {}

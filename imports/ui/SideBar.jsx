@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import ErrorBoundary from './Misc/ErrorBoundary.jsx';
 
-import { Layout, Menu, Icon } from 'antd';
+import { Layout, Menu, Icon, Avatar } from 'antd';
 import 'antd/dist/antd.css';
+
+import GLInstance from './GoldenLayout/GLInstance.jsx';
 
 const { Content, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
-class SiderDemo extends TrackerReact(React.Component) {
+class SideBar extends TrackerReact(React.Component) {
   state = {
     collapsed: false,
   };
@@ -22,14 +24,14 @@ class SiderDemo extends TrackerReact(React.Component) {
   render() {
 
     return (
-      <Layout style={{ minHeight: '100vh' }}>
+      <Layout style={{ display: 'flex', flexDirection: 'row'}}>
         <Sider
           collapsible
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}
         >
           <div className="logo" />
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+          <Menu theme="dark" defaultSelectedKeys={['2']} mode="inline" inlineCollapsed='true'>
             <Menu.Item key="1">
               <Icon type="pie-chart" />
               <span>Option 1</span>
@@ -60,9 +62,13 @@ class SiderDemo extends TrackerReact(React.Component) {
           </Menu>
         </Sider>
         <Layout>
-          <Content style={{ margin: '0 16px' }}>
-            <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-              Bill is a cat.
+          <Content style={{
+            display: 'flex',
+            flexDirection : 'column',
+          }}>
+            <div style={{
+              flexGrow : 1}}>
+              <GLInstance />
             </div>
           </Content>
         </Layout>
@@ -71,4 +77,4 @@ class SiderDemo extends TrackerReact(React.Component) {
   }
 }
 
-export default SiderDemo;
+export default SideBar;
