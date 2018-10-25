@@ -9,15 +9,15 @@ class TemplateComponent extends TrackerReact(React.Component) {
     super();
   };
 
-  componentDidMount() {}
+  // componentDidMount() {}
 
-  shouldComponentUpdate() {}
+  // shouldComponentUpdate(nextProps, nextState) {}
 
-  componentDidUpdate() {}
+  // componentDidUpdate() {}
 
-  componentWillUnmount() {}
+  // componentWillUnmount() {}
 
-  componentDidCatch() {}
+  // componentDidCatch() {}
 
   render() {
 

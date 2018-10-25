@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
+import ErrorBoundary from '../Misc/ErrorBoundary.jsx';
 
 import TestComponent from './TestComponent.jsx'
 import GoldenLayout from 'golden-layout'
@@ -49,33 +50,40 @@ class GLInstance extends TrackerReact(React.Component) {
     layout.init();
     // layout.updateSize();
 
+    console.log(parentElement)
+
     // layout.updateSize(parentElement.style.width, parentElement.style.height);
     $(window).resize(function () {
-      layout.updateSize();
-      // layout.updateSize(parentElement.style.width, parentElement.style.height);
+      // layout.updateSize();
+      layout.updateSize(parentElement.style.width, parentElement.style.height);
     });
+    parentElement.onresize = function() {
+      console.log(parentElement.style.width)
+    }
+    parentElement.addEventListener("resize", function(){console.log('Test')});
   }
 
-  shouldComponentUpdate() {}
+  // shouldComponentUpdate(nextProps, nextState) {}
 
-  componentDidUpdate() {}
+  // componentDidUpdate() {}
 
-  componentWillUnmount() {}
+  // componentWillUnmount() {}
 
-  componentDidCatch() {}
+  // componentDidCatch() {}
 
   render() {
 
     return (
-      <div id="GLElement" style={{
-        width : '100%',
-        height : '100%',
-        margin : '0px',
-        padding : '0px',
-        // flexGrow : 1,
-      }}>
-
-      </div>
+      <ErrorBoundary>
+        <div id="GLElement" style={{
+          // width : '100%',
+          // height : '100%',
+          margin : '0px',
+          padding : '0px',
+          flex : 'auto',
+        }}>
+        </div>
+      </ErrorBoundary>
     )
   }
 };

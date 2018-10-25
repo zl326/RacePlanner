@@ -24,11 +24,14 @@ class SideBar extends TrackerReact(React.Component) {
   render() {
 
     return (
-      <Layout style={{ display: 'flex', flexDirection: 'row'}}>
+      <Layout style={{ display: 'flex', flexDirection: 'row', flex: 'auto',}}>
         <Sider
           collapsible
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}
+          style={{
+            flex: 'auto',
+          }}
         >
           <div className="logo" />
           <Menu theme="dark" defaultSelectedKeys={['2']} mode="inline" inlineCollapsed='true'>
@@ -61,14 +64,21 @@ class SideBar extends TrackerReact(React.Component) {
             </Menu.Item>
           </Menu>
         </Sider>
-        <Layout>
+        <Layout style={{
+          flex: 'auto'
+          }}>
           <Content style={{
             display: 'flex',
             flexDirection : 'column',
+            flex: 'auto',
           }}>
             <div style={{
-              flexGrow : 1}}>
-              <GLInstance />
+              display: 'flex',
+              flexDirection: 'column',
+              flexGrow : 1,}}>
+              <GLInstance
+                sideBarCollapsed={this.state.collapsed}
+                />
             </div>
           </Content>
         </Layout>
