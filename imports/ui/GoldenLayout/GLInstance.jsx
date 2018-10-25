@@ -50,8 +50,6 @@ class GLInstance extends TrackerReact(React.Component) {
     layout.init();
     // layout.updateSize();
 
-    console.log(parentElement)
-
     // $(window).resize(function () {
     //   layout.updateSize(layout.container.width(), layout.container.height());
     // });
@@ -63,11 +61,10 @@ class GLInstance extends TrackerReact(React.Component) {
     //   console.log('Hi')
     // }
 
+    // Ensure the Golden Layout is always resized correctly when the div size changes
     var resizeGL = new ResizeObserver( entries => {
       layout.updateSize(layout.container.width(), layout.container.height());
-      console.log(layout.container.width())
     });
-
     resizeGL.observe(parentElement)
 
   }
@@ -87,8 +84,6 @@ class GLInstance extends TrackerReact(React.Component) {
     return (
       <ErrorBoundary>
         <div id="GLElement" style={{
-          // width : '100%',
-          // height : '100%',
           margin : '0px',
           padding : '0px',
           flex : 'auto',

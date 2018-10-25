@@ -17,7 +17,6 @@ class SideBar extends TrackerReact(React.Component) {
   };
 
   onCollapse = (collapsed) => {
-    console.log(collapsed);
     this.setState({ collapsed });
   }
 
@@ -34,7 +33,9 @@ class SideBar extends TrackerReact(React.Component) {
             flex: 'auto',
           }}
         >
-          <div className="logo" />
+          <div>
+            <Avatar shape="square" icon="user" style={{width: '100%'}} />
+          </div>
           <Menu theme="dark" defaultSelectedKeys={['2']} mode="inline" inlineCollapsed='true'>
             <Menu.Item key="1">
               <Icon type="pie-chart" />
