@@ -1,1 +1,1 @@
-meteor --port 80
+meteor --port 3000

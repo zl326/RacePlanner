@@ -22,7 +22,7 @@ requestPrefix = r'https://api.darksky.net/forecast'
 ###############################################################################
 
 # Connect to MongoDB
-mongoClient = pymongo.MongoClient('mongodb://localhost:81/')
+mongoClient = pymongo.MongoClient('mongodb://localhost:3001/')
 DB = mongoClient['meteor']
 DB_weather = DB['weather']
 
