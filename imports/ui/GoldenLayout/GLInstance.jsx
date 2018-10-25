@@ -52,16 +52,27 @@ class GLInstance extends TrackerReact(React.Component) {
 
     console.log(parentElement)
 
-    // layout.updateSize(parentElement.style.width, parentElement.style.height);
-    $(window).resize(function () {
-      // layout.updateSize();
-      layout.updateSize(parentElement.style.width, parentElement.style.height);
+    // $(window).resize(function () {
+    //   layout.updateSize(layout.container.width(), layout.container.height());
+    // });
+    // parentElement.onresize = function() {
+    //   console.log(parentElement.style.width)
+    // }
+    // parentElement.addEventListener("resize", this.resizeGL);
+    // resizeGL() {
+    //   console.log('Hi')
+    // }
+
+    var resizeGL = new ResizeObserver( entries => {
+      layout.updateSize(layout.container.width(), layout.container.height());
+      console.log(layout.container.width())
     });
-    parentElement.onresize = function() {
-      console.log(parentElement.style.width)
-    }
-    parentElement.addEventListener("resize", function(){console.log('Test')});
+
+    resizeGL.observe(parentElement)
+
   }
+
+
 
   // shouldComponentUpdate(nextProps, nextState) {}
 

@@ -24,8 +24,9 @@ class SideBar extends TrackerReact(React.Component) {
   render() {
 
     return (
-      <Layout style={{ display: 'flex', flexDirection: 'row', flex: 'auto',}}>
+      <Layout style={{ display: 'flex', flexDirection: 'row', flex: '1 1 auto',}}>
         <Sider
+          id="sider"
           collapsible
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}
