@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TrackerReact from 'meteor/ultimatejs:tracker-react';
+import { withTracker } from 'meteor/react-meteor-data';
 import ErrorBoundary from './Misc/ErrorBoundary.jsx';
 
-class TemplateComponent extends TrackerReact(React.Component) {
+class TemplateComponent extends React.Component {
 
   constructor() {
     super();
@@ -29,4 +29,8 @@ class TemplateComponent extends TrackerReact(React.Component) {
   }
 };
 
-export default TemplateComponent;
+export default TemplateComponentContainer = withTracker((props) => {
+  return {
+
+  };
+})(TemplateComponent);

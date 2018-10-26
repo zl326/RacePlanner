@@ -25,7 +25,7 @@ class Info extends Component {
   }
 }
 
-export default InfoContainer = withTracker(() => {
+export default InfoContainer = withTracker((props) => {
   return {
     links: Links.find().fetch(),
   };

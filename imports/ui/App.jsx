@@ -1,11 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import ErrorBoundary from './Misc/ErrorBoundary.jsx';
 
 import SideBar from './SideBar.jsx'
 
-class App extends TrackerReact(React.Component) {
+export default class App extends React.Component {
 
   constructor() {
     super();
@@ -22,5 +21,3 @@ class App extends TrackerReact(React.Component) {
     )
   }
 };
-
-export default App;

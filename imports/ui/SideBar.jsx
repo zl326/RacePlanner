@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import ErrorBoundary from './Misc/ErrorBoundary.jsx';
 
 import { Layout, Menu, Icon, Avatar } from 'antd';
 import 'antd/dist/antd.css';
 
-import GLInstance from './GoldenLayout/GLInstance.jsx';
+import GLInstanceContainer from './GoldenLayout/GLInstance.jsx';
 
 const { Content, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
-class SideBar extends TrackerReact(React.Component) {
+export default class SideBar extends React.Component {
   state = {
     collapsed: false,
   };
@@ -78,7 +77,7 @@ class SideBar extends TrackerReact(React.Component) {
               display: 'flex',
               flexDirection: 'column',
               flexGrow : 1,}}>
-              <GLInstance
+              <GLInstanceContainer
                 sideBarCollapsed={this.state.collapsed}
                 />
             </div>
@@ -88,5 +87,3 @@ class SideBar extends TrackerReact(React.Component) {
     );
   }
 }
-
-export default SideBar;
