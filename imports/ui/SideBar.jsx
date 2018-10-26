@@ -22,7 +22,7 @@ export default class SideBar extends React.Component {
   render() {
 
     return (
-      <Layout style={{ display: 'flex', flexDirection: 'row', flex: '1 1 auto',}}>
+      <Layout style={{ display: 'flex', flexDirection: 'row', flex: '1 1 auto'}}>
         <Sider
           id="sider"
           collapsible
@@ -71,12 +71,12 @@ export default class SideBar extends React.Component {
           <Content style={{
             display: 'flex',
             flexDirection : 'column',
-            flex: 'auto',
+            flex: 'auto'
           }}>
             <div style={{
               display: 'flex',
               flexDirection: 'column',
-              flexGrow : 1,}}>
+              flexGrow : 1}}>
               <GLInstanceContainer
                 sideBarCollapsed={this.state.collapsed}
                 />
