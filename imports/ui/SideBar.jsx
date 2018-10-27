@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { withTracker } from 'meteor/react-meteor-data';
 import ErrorBoundary from './Misc/ErrorBoundary.jsx';
 
 import { Layout, Menu, Icon, Avatar } from 'antd';
@@ -11,7 +10,7 @@ import GLInstanceContainer from './GoldenLayout/GLInstance.jsx';
 const { Content, Sider } = Layout;
 const SubMenu = Menu.SubMenu;
 
-class SideBar extends React.Component {
+export default class SideBar extends React.Component {
   state = {
     collapsed: false,
   };
@@ -21,10 +20,6 @@ class SideBar extends React.Component {
   }
 
   render() {
-    var loc = window.location.pathname;
-    var dir = loc.substring(0, loc.lastIndexOf('/'));
-    console.log(loc)
-    console.log(dir)
 
     return (
       <Layout style={{ display: 'flex', flexDirection: 'row', flex: '1 1 auto'}}>
@@ -37,9 +32,6 @@ class SideBar extends React.Component {
             flex: 'auto',
           }}
         >
-          <div>
-            <img src="/ancillary/images/CUER/logo.png"></img>
-          </div>
           <div>
             <Avatar shape="square" icon="user" style={{width: '100%'}} />
           </div>
@@ -85,11 +77,9 @@ class SideBar extends React.Component {
               display: 'flex',
               flexDirection: 'column',
               flexGrow : 1}}>
-              <ErrorBoundary>
-                <GLInstanceContainer
-                  sideBarCollapsed={this.state.collapsed}
-                  />
-              </ErrorBoundary>
+              <GLInstanceContainer
+                sideBarCollapsed={this.state.collapsed}
+                />
             </div>
           </Content>
         </Layout>
@@ -97,9 +87,3 @@ class SideBar extends React.Component {
     );
   }
 }
-
-export default SideBarContainer = withTracker((props) => {
-  return {
-
-  };
-})(SideBar);

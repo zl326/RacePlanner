@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ErrorBoundary from './Misc/ErrorBoundary.jsx';
 
-import SideBarContainer from './SideBar.jsx'
+import SideBar from './SideBar.jsx'
 
 export default class App extends React.Component {
 
@@ -16,7 +16,7 @@ export default class App extends React.Component {
 
     return (
       <ErrorBoundary>
-        <SideBarContainer />
+        <SideBar />
       </ErrorBoundary>
     )
   }
