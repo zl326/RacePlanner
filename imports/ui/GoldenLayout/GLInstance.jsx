@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom';
 import { withTracker } from 'meteor/react-meteor-data';
 import ErrorBoundary from '../Misc/ErrorBoundary.jsx';
 
-import TestComponent from './TestComponent.jsx'
 import GoldenLayout from 'golden-layout'
+import TestComponent from './TestComponent.jsx'
+import WeatherSnapshotContainer from './WeatherSnapshot/WeatherSnapshot.jsx'
 
 import '../../../node_modules/golden-layout/src/css/goldenlayout-base.css'
 import '../../../node_modules/golden-layout/src/css/goldenlayout-dark-theme.css'
@@ -27,7 +28,7 @@ class GLInstance extends React.Component {
           type: 'column',
           content:[{
             type: 'react-component',
-            component: 'testComponent',
+            component: 'WeatherSnapshot',
             props: { label: 'B' }
           },{
             type: 'react-component',
@@ -48,6 +49,7 @@ class GLInstance extends React.Component {
       var layout = new GoldenLayout( config , parentElement);
 
       layout.registerComponent( 'testComponent', TestComponent );
+      layout.registerComponent( 'WeatherSnapshot', WeatherSnapshotContainer );
       layout._isFullPage = true;
 
       layout.init();
