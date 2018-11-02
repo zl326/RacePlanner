@@ -1,9 +1,10 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 class TestComponent extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   };
 
   componentDidMount() {}

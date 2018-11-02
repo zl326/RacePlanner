@@ -11,8 +11,8 @@ import '../../../node_modules/golden-layout/src/css/goldenlayout-dark-theme.css'
 
 class GLInstance extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   };
 
   componentDidMount() {
@@ -20,19 +20,19 @@ class GLInstance extends React.Component {
       content: [{
         type: 'row',
         content:[{
-          type: 'component',
-          componentName: 'testComponent',
-          componentState: { label: 'A' }
+          type: 'react-component',
+          component: 'testComponent',
+          props: { label: 'A' }
         },{
           type: 'column',
           content:[{
-            type: 'component',
-            componentName: 'testComponent',
-            componentState: { label: 'B' }
+            type: 'react-component',
+            component: 'testComponent',
+            props: { label: 'B' }
           },{
-            type: 'component',
-            componentName: 'testComponent',
-            componentState: { label: 'C' }
+            type: 'react-component',
+            component: 'testComponent',
+            props: { label: 'C' }
           }]
         }]
       }],
@@ -42,47 +42,38 @@ class GLInstance extends React.Component {
 
     var parentElement = document.getElementById(`GLElement`);
 
-    var layout = new GoldenLayout( config , parentElement);
+    // Golden layout initialisation wrapped in a setTimeout to get around a bug
+    // explained in https://github.com/golden-layout/golden-layout/pull/348
+    setTimeout(() => {
+      var layout = new GoldenLayout( config , parentElement);
 
-    layout.registerComponent( 'testComponent', TestComponent );
-    layout._isFullPage = true;
+      layout.registerComponent( 'testComponent', TestComponent );
+      layout._isFullPage = true;
 
-    layout.init();
-    // layout.updateSize();
+      layout.init();
 
-    // $(window).resize(function () {
-    //   layout.updateSize(layout.container.width(), layout.container.height());
-    // });
-    // parentElement.onresize = function() {
-    //   console.log(parentElement.style.width)
-    // }
-    // parentElement.addEventListener("resize", this.resizeGL);
-    // resizeGL() {
-    //   console.log('Hi')
-    // }
-
-    // Ensure the Golden Layout is always resized correctly when the div size changes
-    // Check if the user is on Chrome
-    if (navigator.vendor == 'Google Inc.') {
-      // If Chrome, use ResizeObserver
-      var resizeGL = new ResizeObserver( entries => {
-        layout.updateSize(layout.container.width(), layout.container.height());
-      });
-      resizeGL.observe(parentElement)
-    }
-    else {
-      // // If not Chrome, use MutationObserver
-      // var resizeGL = new MutationObserver( (mutations) => {
-      //   console.log(mutations)
-      //   mutations.forEach(function(mutation){
-      //     if (mutation.type === 'attributes' && mutation.attributeName === 'width') {
-      //       layout.updateSize(layout.container.width(), layout.container.height());
-      //     }
-      //   })
-      // });
-      // resizeGL.observe(parentElement, { attributes: true});
-    }
-
+      // Ensure the Golden Layout is always resized correctly when the div size changes
+      // Check if the user is on Chrome
+      if (navigator.vendor == 'Google Inc.') {
+        // If Chrome, use ResizeObserver
+        var resizeGL = new ResizeObserver( entries => {
+          layout.updateSize(layout.container.width(), layout.container.height());
+        });
+        resizeGL.observe(parentElement)
+      }
+      else {
+        // // If not Chrome, use MutationObserver
+        // var resizeGL = new MutationObserver( (mutations) => {
+        //   console.log(mutations)
+        //   mutations.forEach(function(mutation){
+        //     if (mutation.type === 'attributes' && mutation.attributeName === 'width') {
+        //       layout.updateSize(layout.container.width(), layout.container.height());
+        //     }
+        //   })
+        // });
+        // resizeGL.observe(parentElement, { attributes: true});
+      }
+    }, 0);
   }
 
 

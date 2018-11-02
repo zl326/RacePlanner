@@ -5,8 +5,8 @@ import ErrorBoundary from './Misc/ErrorBoundary.jsx';
 
 class TemplateComponent extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   };
 
   // componentDidMount() {}
