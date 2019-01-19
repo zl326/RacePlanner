@@ -45,7 +45,7 @@ for row in routeFile:
 
 
 # Loop through each location
-for index in range(0, len(route['distance'])) :
+for index in range(70, len(route['distance'])) :
     distance = route['distance'][index]
     latitude = route['latitude'][index]
     longitude = route['longitude'][index]
