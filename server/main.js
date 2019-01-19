@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import Links from '/imports/api/links';
 
-import DB_Weather from '/imports/api/weather.js';
+DB_Weather = new Mongo.Collection('weather');
 
 
 function insertLink(title, url) {
@@ -41,3 +41,7 @@ Meteor.methods({
       });
   }
 })
+
+Meteor.publish('weather', function () {
+  return DB_Weather.find({_distance:10}, {});
+});
