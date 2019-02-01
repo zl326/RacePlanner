@@ -10,7 +10,7 @@ class WeatherSnapshot extends React.Component {
 
     const weather = Meteor.subscribe('weather');
 
-    console.log(weather.find({_distance:10}))
+    // console.log(weather.find({_distance:10}))
 
   };
 
@@ -27,9 +27,9 @@ class WeatherSnapshot extends React.Component {
   render() {
 
     return (
-      <div>
-
-      </div>
+      <>
+        <p>WeatherSnapshot.jsx</p>
+      </>
     )
   }
 };

@@ -95,7 +95,8 @@ class GLInstance extends React.Component {
         <div id="GLElement" style={{
           margin : '0px',
           padding : '0px',
-          flex : 'auto',
+          flex : '1 1 0',
+          minHeight: 0,
         }}>
         </div>
       </ErrorBoundary>
