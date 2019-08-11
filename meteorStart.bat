@@ -1,1 +1,1 @@
-meteor --port 3000
+start powershell -noexit -Command "meteor --port 3000"

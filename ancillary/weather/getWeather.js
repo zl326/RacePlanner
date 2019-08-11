@@ -15,13 +15,13 @@ let requestPrefix = 'https://api.darksky.net/forecast'
 var MongoClient = Mongo.MongoClient;
 
 // Connect to the db
-MongoClient.connect("mongodb://localhost:3001/", { useNewUrlParser: true }, async function(err, db) {
+MongoClient.connect("mongodb://localhost:27017/", { useNewUrlParser: true }, async function(err, db) {
   if(err) {
     console.log("Error connecting to MongoDB");
     process.exit(-1)
-  }
+  } 
   else console.log(`Connected to MongoDB`)
-  DB_weather = db.db('meteor').collection(`weather`)
+  DB_weather = db.db('CUER').collection(`weather`)
 
 
   let route = await csv().fromFile(routeFilename)
@@ -30,7 +30,7 @@ MongoClient.connect("mongodb://localhost:3001/", { useNewUrlParser: true }, asyn
   let fetchingLocations = []
   let fetchingPromiseList = []
   let processingDistances = []
-
+ 
   completed = {}
   for (let location of route) {
     location.distance = parseFloat(location.distance)
