@@ -10,7 +10,7 @@
   "dependencies": {
     "@babel/runtime": "^7.0.0",
     "antd": "^3.10.2",
-    "bcrypt": "^3.0.2",
+    "bcrypt": "^5.0.0",
     "csvtojson": "^2.0.8",
     "golden-layout": "^1.5.9",
     "indexof": "0.0.1",
